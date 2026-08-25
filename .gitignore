@@ -1,0 +1,33 @@
+# Terraform state and local metadata
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+.terraform.lock.hcl
+
+# Terraform variable files may contain environment-specific or secret values
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+
+# Azure, Kubernetes, and Velero credentials
+.env
+.env.*
+*.secret
+*.credentials
+credentials-velero
+kubeconfig
+*.kubeconfig
+azureProfile.json
+accessTokens.json
+
+# Local tooling
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
