@@ -3,8 +3,13 @@ output "aks_name" {
   value       = azurerm_kubernetes_cluster.this.name
 }
 
-output "location" {
-  description = "Azure region used by the project."
+output "aks_location" {
+  description = "Azure region used by AKS."
+  value       = var.aks_location
+}
+
+output "storage_location" {
+  description = "Azure region used by the Storage account."
   value       = var.location
 }
 

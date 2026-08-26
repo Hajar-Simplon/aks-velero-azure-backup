@@ -5,9 +5,15 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-  description = "Azure region used for the lab resources."
+  description = "Azure region used for Storage and managed identity resources."
   type        = string
   default     = "francecentral"
+}
+
+variable "aks_location" {
+  description = "Azure region used for the AKS cluster."
+  type        = string
+  default     = "westeurope"
 }
 
 variable "name_prefix" {

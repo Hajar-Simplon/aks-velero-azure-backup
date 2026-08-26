@@ -2,9 +2,10 @@
 resource_group_name = "hmezouarRG"
 
 location      = "francecentral"
-name_prefix  = "velerolab"
-node_vm_size = "Standard_D2_v3"
-node_count   = 1
+aks_location  = "westeurope"
+name_prefix   = "velerolab"
+node_vm_size  = "Standard_D2_v3"
+node_count    = 1
 
 # Optional bonus. Set to true to retain deleted blobs for seven days.
 enable_blob_soft_delete = false

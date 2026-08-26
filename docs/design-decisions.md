@@ -17,10 +17,11 @@
 ## Validated deployment baseline
 
 - Azure CLI context: authenticated, enabled default subscription.
-- Deployment region: `francecentral`.
+- AKS region: `westeurope`; Storage and managed identity remain in
+  `francecentral`.
 - AKS node pool: one `Standard_D2_v3` node for this dev/test lab.
-- Capacity basis: 4 Dv3-family vCPUs available during validation; the node
-  requires 2 vCPUs.
+- Capacity basis: France Central had no size meeting policy, availability, and
+  quota constraints; West Europe had sufficient Dv3 and regional vCPU quota.
 
 ## Decisions still to confirm before deployment
 

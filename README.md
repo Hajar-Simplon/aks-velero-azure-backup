@@ -26,11 +26,11 @@ Azure Storage account
 ## Mandatory objectives
 
 - [x] Validate the Azure account, subscription context, region, and quota.
-- [ ] Create an AKS cluster with OIDC and Workload Identity enabled.
-- [ ] Create an Azure Storage account and a private Blob container named
+- [x] Create an AKS cluster with OIDC and Workload Identity enabled.
+- [x] Create an Azure Storage account and a private Blob container named
       `velero`.
-- [ ] Grant Velero least-privilege access to the container.
-- [ ] Install Velero with the Microsoft Azure plugin.
+- [x] Grant Velero least-privilege access to the container.
+- [x] Install Velero with the Microsoft Azure plugin.
 - [ ] Deploy the Nginx test resources.
 - [ ] Create a manual Velero backup.
 - [ ] Confirm that backup blobs exist in Azure Storage.
@@ -72,4 +72,3 @@ Azure Storage account
 
 This repository must never contain Azure access keys, client secrets, SAS
 tokens, kubeconfig files, Terraform state, or downloaded Velero credentials.
-

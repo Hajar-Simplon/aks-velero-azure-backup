@@ -22,8 +22,9 @@ create:
 - least-privilege role assignment;
 - federated identity credential for the Velero Kubernetes ServiceAccount.
 
-Terraform state must not remain only on a workstation for a production design.
-For this lab, the backend strategy must be decided before the first apply.
+Terraform state is stored in a dedicated Azure Blob backend rather than only
+on an administrator workstation. The state container remains separate from
+the Velero backup container.
 Terraform must never declare or import the resource group as a managed resource.
 
 ## Phase 3 — Install Velero

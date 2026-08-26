@@ -20,7 +20,7 @@ locals {
 
 resource "azurerm_kubernetes_cluster" "this" {
   name                = local.aks_name
-  location            = var.location
+  location            = var.aks_location
   resource_group_name = data.azurerm_resource_group.target.name
   dns_prefix          = local.aks_name
   sku_tier            = "Free"
@@ -30,11 +30,18 @@ resource "azurerm_kubernetes_cluster" "this" {
   role_based_access_control_enabled = true
 
   default_node_pool {
-    name            = "system"
-    node_count      = var.node_count
-    vm_size         = var.node_vm_size
-    os_disk_size_gb = 64
-    type            = "VirtualMachineScaleSets"
+    name                        = "system"
+    temporary_name_for_rotation = "systemtmp"
+    node_count                  = var.node_count
+    vm_size                     = var.node_vm_size
+    os_disk_size_gb             = 64
+    type                        = "VirtualMachineScaleSets"
+
+    upgrade_settings {
+      max_surge                     = "10%"
+      drain_timeout_in_minutes      = 0
+      node_soak_duration_in_minutes = 0
+    }
   }
 
   identity {
@@ -103,9 +110,9 @@ resource "azurerm_role_assignment" "velero_blob_data" {
 }
 
 resource "azurerm_federated_identity_credential" "velero" {
-  name      = "velero-service-account"
-  parent_id = azurerm_user_assigned_identity.velero.id
-  audience  = ["api://AzureADTokenExchange"]
-  issuer    = azurerm_kubernetes_cluster.this.oidc_issuer_url
-  subject   = "system:serviceaccount:velero:velero"
+  name                      = "velero-service-account"
+  user_assigned_identity_id = azurerm_user_assigned_identity.velero.id
+  audience                  = ["api://AzureADTokenExchange"]
+  issuer                    = azurerm_kubernetes_cluster.this.oidc_issuer_url
+  subject                   = "system:serviceaccount:velero:velero"
 }
