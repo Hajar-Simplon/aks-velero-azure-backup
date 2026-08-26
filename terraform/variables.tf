@@ -50,6 +50,30 @@ variable "enable_blob_soft_delete" {
   default     = false
 }
 
+variable "aks_outbound_public_ips" {
+  description = "Public egress IP addresses used by AKS and allowed through the Storage firewall."
+  type        = list(string)
+
+  validation {
+    condition = length(var.aks_outbound_public_ips) > 0 && alltrue([
+      for ip in var.aks_outbound_public_ips : can(cidrhost("${ip}/32", 0)) && !strcontains(ip, "/")
+    ])
+    error_message = "aks_outbound_public_ips must contain at least one plain IPv4 address without CIDR notation."
+  }
+}
+
+variable "simplon_public_ips" {
+  description = "Simplon site public IP addresses allowed through the Storage firewall."
+  type        = list(string)
+
+  validation {
+    condition = length(var.simplon_public_ips) > 0 && alltrue([
+      for ip in var.simplon_public_ips : can(cidrhost("${ip}/32", 0)) && !strcontains(ip, "/")
+    ])
+    error_message = "simplon_public_ips must contain at least one plain IPv4 address without CIDR notation."
+  }
+}
+
 variable "tags" {
   description = "Tags applied to project resources."
   type        = map(string)

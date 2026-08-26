@@ -7,5 +7,10 @@ name_prefix   = "velerolab"
 node_vm_size  = "Standard_D2_v3"
 node_count    = 1
 
+# Storage firewall allowlist. Discover the AKS egress address from the managed
+# cluster and replace the documentation-only examples before applying.
+aks_outbound_public_ips = ["198.51.100.10"]
+simplon_public_ips      = ["203.0.113.10"]
+
 # Optional bonus. Set to true to retain deleted blobs for seven days.
 enable_blob_soft_delete = false

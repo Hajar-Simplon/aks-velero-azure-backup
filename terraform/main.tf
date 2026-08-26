@@ -85,6 +85,17 @@ resource "azurerm_storage_account" "velero" {
     }
   }
 
+  # Keep the public endpoint available, but reject every data-plane source
+  # except the explicitly allowlisted AKS egress and Simplon public IPs.
+  network_rules {
+    default_action = "Deny"
+    bypass         = ["None"]
+    ip_rules = distinct(concat(
+      var.aks_outbound_public_ips,
+      var.simplon_public_ips,
+    ))
+  }
+
   tags = var.tags
 }
 

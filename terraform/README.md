@@ -21,6 +21,20 @@ created inside it remain separate project resources.
 - `outputs.tf`: values required by kubectl and the Velero installation.
 - `terraform.tfvars.example`: example environment values.
 
+## Storage firewall inputs
+
+The Velero Storage account denies data-plane traffic by default. Supply the
+current AKS egress and approved Simplon site addresses in the ignored local
+`terraform.tfvars` file:
+
+```hcl
+aks_outbound_public_ips = ["<AKS_OUTBOUND_IPV4>"]
+simplon_public_ips      = ["<SIMPLON_PUBLIC_IPV4>"]
+```
+
+Do not copy environment-specific addresses into `terraform.tfvars.example`.
+The committed example uses documentation-only IP ranges.
+
 ## Validation policy
 
 All changes must pass formatting and configuration validation. A saved plan

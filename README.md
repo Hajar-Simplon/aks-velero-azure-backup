@@ -19,7 +19,10 @@ AKS cluster
         | Microsoft Entra Workload Identity
         v
 Azure Storage account
-`-- Blob container: velero
+|-- Network firewall
+|   |-- AKS outbound public IP
+|   `-- Simplon public IP
+`-- Private Blob container: velero
     `-- Velero backup objects
 ```
 
@@ -51,7 +54,7 @@ Azure Storage account
 
 ## Bonus objectives
 
-- [ ] Restrict Storage access to the AKS network and approved Simplon network.
+- [x] Restrict Storage access to AKS egress and the approved Simplon network.
 - [ ] Enable Blob soft delete.
 - [ ] Use cross-region replication such as GRS or GZRS.
 - [ ] Configure customer-managed encryption keys with Azure Key Vault.
