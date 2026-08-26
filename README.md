@@ -31,13 +31,13 @@ Azure Storage account
       `velero`.
 - [x] Grant Velero least-privilege access to the container.
 - [x] Install Velero with the Microsoft Azure plugin.
-- [ ] Deploy the Nginx test resources.
-- [ ] Create a manual Velero backup.
-- [ ] Confirm that backup blobs exist in Azure Storage.
-- [ ] Delete the test namespace.
-- [ ] Restore the namespace from the backup.
-- [ ] Verify the restored Deployment, pods, Service, and ConfigMap.
-- [ ] Complete the final documentation and screenshot evidence.
+- [x] Deploy the Nginx test resources.
+- [x] Create a manual Velero backup.
+- [x] Confirm that backup blobs exist in Azure Storage.
+- [x] Delete the test namespace and confirm that it no longer exists.
+- [x] Restore the namespace from the backup.
+- [x] Verify the restored Deployment, pods, Service, and ConfigMap.
+- [ ] Add the final deletion and restoration screenshots.
 
 ## Preferred implementation
 
@@ -72,3 +72,11 @@ Azure Storage account
 
 This repository must never contain Azure access keys, client secrets, SAS
 tokens, kubeconfig files, Terraform state, or downloaded Velero credentials.
+
+## Demonstrated result
+
+The manual backup `nginx-backup` completed with all 54 discovered items and no
+errors or warnings. After the `nginx-demo` namespace was deleted, the
+`nginx-restore` operation completed and restored all 15 selected items. The
+Deployment subsequently reached `2/2` available replicas, with both Nginx pods
+in the `Running` state. See [the restoration procedure](docs/07-restore.md).

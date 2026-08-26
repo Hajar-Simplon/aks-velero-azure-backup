@@ -8,3 +8,12 @@ credentials, tokens, account keys, SAS URLs, or unrelated troubleshooting.
 | File | Requirement proved |
 |---|---|
 | `04-velero-running-bsl-available.png` | Velero pod is `Running` and the Azure BackupStorageLocation is `Available` in `ReadWrite` mode. |
+| `06-backup-completed.png` | `nginx-backup` completed with 54/54 items and no errors or warnings. |
+| `07-azure-blob-backup-objects.png` | Backup objects exist under the `backups/nginx-backup/` Azure Blob prefix. |
+
+## Final evidence still to capture
+
+| File | Requirement proved |
+|---|---|
+| `08-namespace-deleted.png` | `nginx-demo` is absent before restoration (`NotFound`). |
+| `09-restore-completed-resources-running.png` | `nginx-restore` is `Completed` and the restored Deployment, Service, ConfigMap, and pods are healthy. |
