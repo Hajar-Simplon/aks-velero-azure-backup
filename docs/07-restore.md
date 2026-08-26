@@ -67,13 +67,13 @@ The end-to-end recovery objective was achieved. Velero successfully read the
 backup from the private Azure Blob container and recreated the deleted
 Kubernetes resources on AKS.
 
-## Required final evidence
+## Evidence
 
-Two final screenshots should be retained:
+The retained screenshot shows that `nginx-restore` completed and that the
+restored Deployment, Service, ConfigMaps, and application pod are healthy. The
+Deployment status of `2/2` confirms that both requested replicas are available.
 
-1. `08-namespace-deleted.png`: the `NotFound` result after deletion;
-2. `09-restore-completed-resources-running.png`: the completed restore together
-   with the restored resources and running pods.
+![Completed Velero restore and healthy restored resources](../screenshots/09-restore-completed-resources-running.png)
 
-Screenshots must not reveal access tokens, account keys, SAS URLs, or other
+The evidence does not reveal access tokens, account keys, SAS URLs, or other
 credentials.

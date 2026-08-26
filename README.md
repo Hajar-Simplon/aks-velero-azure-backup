@@ -37,7 +37,7 @@ Azure Storage account
 - [x] Delete the test namespace and confirm that it no longer exists.
 - [x] Restore the namespace from the backup.
 - [x] Verify the restored Deployment, pods, Service, and ConfigMap.
-- [ ] Add the final deletion and restoration screenshots.
+- [x] Retain screenshot evidence of the completed restoration and healthy resources.
 
 ## Preferred implementation
 
