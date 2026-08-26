@@ -83,3 +83,10 @@ errors or warnings. After the `nginx-demo` namespace was deleted, the
 `nginx-restore` operation completed and restored all 15 selected items. The
 Deployment subsequently reached `2/2` available replicas, with both Nginx pods
 in the `Running` state. See [the restoration procedure](docs/07-restore.md).
+
+## Final deliverable
+
+The complete assessor-facing procedure, decisions, commands, results, and
+screenshot evidence are consolidated in one Word document:
+
+- [`deliverables/Velero-AKS-Azure-Final-Report.docx`](deliverables/Velero-AKS-Azure-Final-Report.docx)
