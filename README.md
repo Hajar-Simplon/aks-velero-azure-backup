@@ -25,7 +25,7 @@ Azure Storage account
 
 ## Mandatory objectives
 
-- [ ] Validate the Azure account, subscription context, region, and quota.
+- [x] Validate the Azure account, subscription context, region, and quota.
 - [ ] Create an AKS cluster with OIDC and Workload Identity enabled.
 - [ ] Create an Azure Storage account and a private Blob container named
       `velero`.
@@ -72,5 +72,4 @@ Azure Storage account
 
 This repository must never contain Azure access keys, client secrets, SAS
 tokens, kubeconfig files, Terraform state, or downloaded Velero credentials.
-
 

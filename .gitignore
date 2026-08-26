@@ -5,7 +5,6 @@
 *.tfplan
 crash.log
 crash.*.log
-.terraform.lock.hcl
 
 # Terraform variable files may contain environment-specific or secret values
 *.tfvars
@@ -30,4 +29,3 @@ accessTokens.json
 Thumbs.db
 .vscode/
 .idea/
-

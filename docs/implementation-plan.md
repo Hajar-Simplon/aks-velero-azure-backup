@@ -3,8 +3,8 @@
 ## Phase 1 — Prepare and validate
 
 1. Verify Azure CLI authentication and selected subscription.
-2. Read the existing externally managed resource group using an ignored local
-   variable, without importing or managing it.
+2. Read the existing `hmezouarRG` resource group through a Terraform data
+   source, without importing or managing it.
 3. Choose an Azure region based on proximity, AKS availability, and quota.
 4. Confirm that required resource providers are registered.
 5. Confirm regional VM quota before creating AKS.
@@ -15,7 +15,6 @@
 Use Terraform to reference the existing resource group as a data source and
 create:
 
-- resource group;
 - AKS cluster with OIDC issuer and Workload Identity;
 - Storage account;
 - private Blob container named `velero`;
